@@ -12,8 +12,8 @@ window.onload = function () {
                 if (!selectedOperation) {
                     selectedOperation = event.key
                 } else {
-                    GetExpressionResult(event.key)
-                    a = expressionResult
+                    GetExpressionResult(selectedOperation)
+                    a = expressionResult.toString()
                     selectedOperation = event.key
                     b = ''
                 }
@@ -43,7 +43,7 @@ window.onload = function () {
 
     function GetExpressionResult(selectedOperation) {
         switch (selectedOperation) {
-            case 'x':
+            case '*':
                 expressionResult = (+a) * (+b)
                 break;
             case '+':
@@ -120,11 +120,11 @@ window.onload = function () {
     document.getElementById("btn_op_mult").onclick = function () {
         if (a === '' || a === '.') return
         if (!selectedOperation) {
-            selectedOperation = 'x'
+            selectedOperation = '*'
         } else {
             GetExpressionResult(selectedOperation)
-            a = expressionResult
-            selectedOperation = 'x'
+            a = expressionResult.toString()
+            selectedOperation = '*'
             b = ''
         }
         outputElement.innerHTML = OutputElementForResult(a, b, selectedOperation)
